@@ -1,0 +1,26 @@
+provider "aws" {
+    access_key = "XXXXXXXXXX"
+    secret_key = "XXXXXXXXXX"
+    alias = "NVirginia"
+    region = "us-east-1"
+    
+}
+
+provider "aws" {
+    access_key = "AKIAZZSQ6HNTTOKMZBAY"
+    secret_key = "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"
+    alias = "Mumbai"
+    region = "ap-south-1"
+}
+
+resource "aws_instance" "myec2" {
+    ami = "ami-08a6efd148b1f7504"
+    instance_type = "t2.micro"
+    provider = aws.NVirginia
+}
+
+resource "aws_instance" "myec21"{
+    ami = "ami-0d0ad8bb301edb745"
+    instance_type = "t2.micro"
+    provider = aws.Mumbai
+}
