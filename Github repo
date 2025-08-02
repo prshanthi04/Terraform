@@ -1,0 +1,17 @@
+terraform {
+  required_providers {
+    github = {
+        source = "integrations/github"
+        version = "~> 6.0"
+    }
+  }
+}
+provider "github" {
+    token = "github_XXX"  
+}
+
+resource "github_repository" "myrepo"{
+    name = "example"
+    description = "creating github repo"
+    visibility = "public"
+}
